@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    background-color: #0d1117;
+    color: white;
+    font-family: 'Cutive Mono', monospace;
+    overflow: hidden;
+}
+
+
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+p{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}

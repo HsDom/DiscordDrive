@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/download.css') }}">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" type="text/css" href="../static/styles/download.css">
+    <title>Discord Drive</title>
+</head>
+<body>
+    <h1 id="main">Constructing Original File...</h1>
+    <p>Made with ❤️ by Dom</p>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    var main = document.getElementById("main");
+    var dots = 0;
+
+    function updateText() {
+        // Determine the number of dots to add
+        var dotString = '.'.repeat(dots);
+
+        // Update the text content of the H1 element
+        main.textContent = "Constructing Original File" + dotString;
+
+        // Increment dots and reset to 0 when it reaches 4
+        dots = (dots + 1) % 4;
+    }
+
+    // Update the text every 500 milliseconds (adjust as needed)
+    setInterval(updateText, 500);
+
+    function SendBackToIndex() {
+        window.location.href = "/";
+    }
+
+    // Redirect back to index after 5 seconds
+    setTimeout(SendBackToIndex, 5000);
+});
+</script>
+</html>

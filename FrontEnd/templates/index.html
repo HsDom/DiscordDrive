@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Discord Drive</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
+</head>
+<body>
+    <div class="main_container">
+        <table class="download_table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>File Size</th>
+                    <th>File Type</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in data  %}
+                <tr>
+                    <td>{{ file["FileName"] }}</td>
+                    <td>{{ file["FileSize"] }}</td>
+                    <td>{{ file["FileType"] }}</td>
+                    <td>
+                        <form action="/download" method="post" onsubmit="showLoader()">
+                            <input type="hidden" name="FileName" value="{{ file["FileName"] }}">
+                            <button class="download_button" type="submit">Download</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container" style="display: none;">
+        <div class="loader"></div>
+    </div>
+</body>
+
+<script>
+    function showLoader() {
+        document.querySelector('.container').style.display = 'block';
+    }
+</script>
+</html>
